@@ -1,0 +1,5 @@
+@media (min-width: 992px) and (max-width: 4000px) {
+    .col-md-4 {
+        float: right;
+    }
+}
