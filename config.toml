@@ -1,4 +1,4 @@
-baseURL = "www.monashrotaract.org.au"
+baseURL = "https://www.monashrotaract.org.au"
 title = "Monash Rotaract"
 
 enableRobotsTXT = true
