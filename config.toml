@@ -102,4 +102,14 @@ no = 'Sorry to hear that. Please <a href="https://github.com/mitchelloharawild/m
 	url = "https://twitter.com/monashrotaract"
 	icon = "fab fa-twitter"
         desc = "Follow us on Twitter to get the latest news!"
+[[params.links.user]]
+	name ="Facebook"
+	url = "https://www.facebook.com/MonashRotaract/"
+	icon = "fab fa-facebook"
+        desc = "Like us on Facebook to get the latest news!"
+[[params.links.user]]
+	name ="Instagram"
+	url = "https://www.instagram.com/monashrotaract/"
+	icon = "fab fa-instagram"
+        desc = "Follow us on Instagram to get the latest news!"
 
