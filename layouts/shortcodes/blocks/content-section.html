@@ -1,0 +1,19 @@
+{{ $col_id := .Get "color" | default .Ordinal }}
+{{ $height := .Get "height" | default "auto"  }}
+{{ $title := .Get "title" | default ""  }}
+{{ $content := .Get "content" | default ""  }}
+<a id="td-block-{{ .Ordinal }}" class="td-offset-anchor"></a>
+<section class="row td-box td-box--{{ $col_id }} td-box--gradient td-box--height-{{ $height }}">
+	<div class="col">
+    <div class="row">
+      <div class="col text-center">
+        <h1>{{ $title }}</h1>
+        <hr style="max-width:50px;border-width:3px;border-color:#fff;">
+        <h4>{{ $content }}</h4>
+      </div>
+    </div>
+		<div class="row">
+			{{ .Inner }}
+		</div>
+	</div>
+</section>
