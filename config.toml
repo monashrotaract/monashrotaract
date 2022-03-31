@@ -1,15 +1,6 @@
 baseURL = "https://www.monashrotaract.org.au"
 title = "Monash Rotaract"
 
-enableRobotsTXT = true
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-
-# Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = "docsy"
-
-# Will give values to .Lastmod etc.
-enableGitInfo = true
-
 # Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
@@ -17,7 +8,32 @@ defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+enableRobotsTXT = true
+
+# Hugo allows theme composition (and inheritance). The precedence is from left to right.
+theme = ["docsy"]
+
+# Will give values to .Lastmod etc.
+enableGitInfo = true
+
+# Comment out to enable taxonomies in Docsy
+# disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# You can add your own taxonomies
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[params.taxonomy]
+# set taxonomyCloud = [] to hide taxonomy clouds
+taxonomyCloud = ["tags", "categories"] 
+
+# If used, must have same length as taxonomyCloud
+taxonomyCloudTitle = ["Tag Cloud", "Categories"] 
+
+# set taxonomyPageHeader = [] to hide taxonomies on the page headers
+taxonomyPageHeader = ["tags", "categories"] 
+
 
 # Highlighting config
 pygmentsCodeFences = true
@@ -27,9 +43,6 @@ pygmentsUseClassic = false
 #pygmentsOptions = "linenos=table"
 # See https://help.farbox.com/pygments.html
 pygmentsStyle = "tango"
-
- # First one is picked as the Twitter card image if not set on page.
- #images = ["images/project-illustration.png"]
 
 # Configure how URLs look like per section.
 [permalinks]
@@ -63,22 +76,74 @@ languageName ="English"
 # Weight used for sorting.
 weight = 1
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+    style = "tango"
+    # Uncomment if you want your chosen highlight style used for code blocks without a specified language
+    # guessSyntax = "true"
+
 # Everything below this are Site Params
+
+# Comment out if you don't want the "print entire section" link enabled.
+[outputs]
+section = ["HTML", "print", "RSS"]
 
 [params]
 copyright = "Monash Rotaract"
 # privacy_policy = "https://policies.google.com/privacy"
 github_repo = "https://github.com/mitchelloharawild/monashrotaract"
 
+# First one is picked as the Twitter card image if not set on page.
+# images = ["images/project-illustration.png"]
+
+# Menu title if your navbar has a versions selector to access old versions of your site.
+# This menu appears only if you have at least one [params.versions] set.
+version_menu = "Releases"
+
+# Flag used in the "version-banner" partial to decide whether to display a 
+# banner on every page indicating that this is an archived version of the docs.
+# Set this flag to "true" if you want to display the banner.
+archived_version = false
+
+# The version number for the version of the docs represented in this doc set.
+# Used in the "version-banner" partial to display a version number for the 
+# current doc set.
+version = "0.0"
+
+# Uncomment this if you have a newer GitHub repo with "main" as the default branch,
+# or specify a new value if you want to reference another branch in your GitHub links
+# github_branch= "main"
+
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+# gcs_engine_id = "d72aa9b2712488cc3"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
+
+# Enable Lunr.js offline search
+offlineSearch = false
+
+# Enable syntax highlighting and copy buttons on code blocks with Prism
+prism_syntax_highlighting = false
 
 # User interface configuration
 [params.ui]
-# Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
+# Set to true to disable the About link in the site footer
+footer_about_disable = false
+# Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
+navbar_logo = true
+# Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
+navbar_translucent_over_cover_disable = false
+# Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = false
+# Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+sidebar_search_disable = false
 
 # Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
 # This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
@@ -90,26 +155,38 @@ enable = true
 yes = 'Glad to hear it! Please <a href="https://github.com/mitchelloharawild/monashrotaract/issues/new">tell us how we can improve</a>.'
 no = 'Sorry to hear that. Please <a href="https://github.com/mitchelloharawild/monashrotaract/issues/new">tell us how we can improve</a>.'
 
+# Adds a reading time to the top of each doc.
+# If you want this feature, but occasionally need to remove the Reading time from a single page, 
+# add "hide_readingtime: true" to the page's front matter
+[params.ui.readingtime]
+enable = false
+
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
 	name = "User mailing list"
 	url = "mailto:info@monashrotaract.org.au"
 	icon = "fa fa-envelope"
-        desc = "Get in touch with us via email!"
+  desc = "Get in touch with us via email!"
 [[params.links.user]]
 	name ="Twitter"
 	url = "https://twitter.com/monashrotaract"
 	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news!"
+  desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
 	name ="Facebook"
 	url = "https://www.facebook.com/MonashRotaract/"
 	icon = "fab fa-facebook"
-        desc = "Like us on Facebook to get the latest news!"
+  desc = "Like us on Facebook to get the latest news!"
 [[params.links.user]]
 	name ="Instagram"
 	url = "https://www.instagram.com/monashrotaract/"
 	icon = "fab fa-instagram"
-        desc = "Follow us on Instagram to get the latest news!"
+  desc = "Follow us on Instagram to get the latest news!"
 
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+  name = "GitHub"
+  url = "https://github.com/monashrotaract/monashrotaract.github.io"
+  icon = "fab fa-github"
+  desc = "Website source code"

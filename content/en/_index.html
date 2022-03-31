@@ -46,6 +46,16 @@ To have fun and to support members!
 <div class="col">
 <h1 class="text-center">Updates from our Instagram page</h1>
 
+<div id="curator-feed-default-feed-layout"></div><!-- The Javascript can be moved to the end of the html page before the </body> tag -->
+<script type="text/javascript">
+/* curator-feed-default-feed-layout */
+(function(){
+var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+i.src="https://cdn.curator.io/published/95a35530-7cde-4989-b85d-050ff82f1032.js";
+e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+})();
+</script>
+
 {{% /blocks/lead %}}
 
 {{< blocks/content-section color="primary" title="Get involved!" content="We meet twice a month to communicate about opportunities to get involved in a variety of projects and events, and to plan our own!" >}}
@@ -54,27 +64,40 @@ To have fun and to support members!
 	<span class="h4 mb-0">
 If you're interested to find out more, we'd love to have you along to a meeting.
 
-We meet on the first and third Wednesday of every month at 7:30 for a 7:45pm start at Glen Waverley RSL.
+We have hybrid meetings on the first and third Monday of every month at 7:30 for a 7:45pm start at the Clayton Hotel and on Zoom.
 
 Send us an email if you have any questions or to let us know you'd like to come along to a meeting or event!
 	</span>
 </div>
 
 
-{{% blocks/feature icon="fa-location-arrow" title="Glen Waverley RSL (Sunset Room)" %}}
-161 Coleman Pde, Glen Waverley
+{{% blocks/feature icon="fa-location-arrow" title="The Clayton Hotel" %}} 
+319 Clayton Road, Clayton
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-envelope" title="Email us directly at:" %}}
 <a href="mailto:info@monashrotaract.org.au"><span>info@monashrotaract.org.au</span></a>
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-calendar" title="Meetings at 7:30PM Wednesday" %}}
+{{% blocks/feature icon="fa-calendar" title="Meetings at 7:30PM Monday" %}}
 1st and 3rd weeks of every month
 {{% /blocks/feature %}}
 
 {{< /blocks/content-section >}}
 
 <section class = "row" style = "padding: 0">
-  <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="map.html"></iframe>
+  <div id="map" style="width: 100%; height: 350px"></div>
+<script type="text/javascript">
+/* map contents */
+(function(){
+  var map = L.map('map').setView([-37.9245, 145.1196], 16);
+  map.scrollWheelZoom.disable();
+  map.once('focus', function() { map.scrollWheelZoom.enable(); });
+  //Add tiles
+  L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  L.marker([-37.9245, 145.1196]).addTo(map);
+})();
+</script>
 </section>
