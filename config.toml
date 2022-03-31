@@ -1,4 +1,4 @@
-baseURL = "https://www.monashrotaract.org.au"
+baseURL = "http://pkg.mitchelloharawild.com/monashrotaract/"
 title = "Monash Rotaract"
 
 # Language settings
