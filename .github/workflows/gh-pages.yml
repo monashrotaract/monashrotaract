@@ -1,18 +1,16 @@
-name: github pages
+name: Deploy GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
-  pull_request:
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          # submodules: true  # Fetch Hugo themes
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
