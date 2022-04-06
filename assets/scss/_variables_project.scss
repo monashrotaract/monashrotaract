@@ -5,3 +5,23 @@ Add styles or override variables from the theme here.
 */
 
 $primary: #d91b5c;
+
+.navbar-logo>svg {
+  height: 30px;
+  width: auto;
+  fill: #cf005d
+}
+
+.navbar-bg-onscroll .navbar-logo>svg {
+  fill: #fff
+}
+
+.navbar.td-navbar{
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .td-navbar-cover {
+    display: flex !important;
+  }
+}
