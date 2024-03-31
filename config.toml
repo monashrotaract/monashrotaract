@@ -175,7 +175,7 @@ enable = false
   desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
 	name ="Facebook"
-	url = "https://www.facebook.com/MonashRotaract/"
+	url = "https://www.facebook.com/monashrotaractclub/"
 	icon = "fab fa-facebook"
   desc = "Like us on Facebook to get the latest news!"
 [[params.links.user]]
